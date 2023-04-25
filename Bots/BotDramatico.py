@@ -17,9 +17,10 @@ class BotDramatico(Bot):
 
     def apresentacao(self):
         return "Oi... Meu nome é Josemildo. Como posso te ajudar? Não consigo te ajudar. O que queres de mim?"
-    
+
     def boas_vindas(self):
         return "Por que você me escolheu? Eu não sirvo pra nada, faço tudo errado..."
 
     def despedida(self):
         return "Você já vai? Não precisa mais de mim? Então, até..."
+
