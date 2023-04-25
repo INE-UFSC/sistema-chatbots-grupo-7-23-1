@@ -3,7 +3,7 @@ from Bots.Bot import Bot
 class BotZangado(Bot):
     def __init__(self,nome):
         super().__init__
-        self.__comandos={   
+        self._comandos={   
             "Boas vindas": "Que boas vindas o que não quero voce aqui",
             "Qual o seu nome": "Quer que eu fale denovo? é Roger",
             "Quero um conselho": "Meu conselho: vai embora",
@@ -19,9 +19,6 @@ class BotZangado(Bot):
 
     def apresentacao(self):
         return 'por favor não me escolha'
-    
-    def executa_comando(self,cmd):
-       return super.executa_comando(cmd)
 
     def boas_vindas(self):
        return 'não creio que você me escolheu'

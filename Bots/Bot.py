@@ -29,9 +29,9 @@ class Bot(ABC):
         pass
 
     def executa_comando(self,cmd):
-        if cmd <= 0 or cmd > len(a):
+        if cmd <= 0 or cmd > len(self._comandos):
             return self.despedida()
-        return sorted(self._commandos.keys())[cmd-1]
+        return sorted(self._comandos.keys())[cmd-1]
 
     @abstractmethod
     def boas_vindas(self):
