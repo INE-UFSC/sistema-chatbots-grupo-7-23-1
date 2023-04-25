@@ -1,15 +1,15 @@
 from Bots.Bot import Bot
 
 class BotDramatico(Bot):
-    def __init__(self):
-        super().__init__()
-        self.__comando = {"Bom dia" : "Nunca será um bom dia...", 
+    def __init__(self, nome):
+        super().__init__(nome)
+        self._comandos = {"Bom dia" : "Nunca será um bom dia...", 
                           "Qual o Seu nome": "Eu já te disse meu nome, é Josemildo, você já esqueceu de mim?", 
                           "Quero um conselho" : "Desista, o mundo vai acabar mesmo, nada vale a pena..."}
 
     @property
     def nome(self):
-        return super()._nome
+        return super().nome
 
     @nome.setter
     def nome(nome):
