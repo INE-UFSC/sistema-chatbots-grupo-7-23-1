@@ -24,7 +24,7 @@ class SistemaChatBot:
             selecionado = False
             escolha = input('Digite o nome do chat bot desejado: ')
             for bot in self.__lista_bots:
-                if escolha == bot.nome:
+                if escolha.lower() == bot.nome.lower():
                     self.__bot = bot
                     selecionado = True
                     print(bot.boas_vindas())
@@ -44,7 +44,7 @@ class SistemaChatBot:
     def le_envia_comando(self):
         cmd = int(input('Digite o comando desejado (ou -1 para fechar o programa): '))
         print(Bot.executa_comando(self.__bot, cmd))
-        if cmd <= -1:
+        if cmd <= -1 or cmd > 3:
             return True
         pass
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
