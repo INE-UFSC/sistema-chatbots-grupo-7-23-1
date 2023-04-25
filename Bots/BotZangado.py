@@ -20,9 +20,6 @@ class BotZangado(Bot):
     def apresentacao(self):
         return 'Por favor não me escolha'
     
-    def executa_comando(self,cmd):
-       return super.executa_comando(cmd)
-
     def boas_vindas(self):
        return 'Não creio que você me escolheu'
 
