@@ -5,7 +5,7 @@ class BotZangado(Bot):
         super().__init__(nome)
         self._comandos={   
             "Boas vindas": "Que boas vindas o que não quero voce aqui",
-            "Qual o seu nome": "Quer que eu fale denovo? é Roger",
+            "Qual o seu nome": f"Quer que eu fale denovo? é {self._nome}",
             "Quero um conselho": "Meu conselho: vai embora",
         }
 
