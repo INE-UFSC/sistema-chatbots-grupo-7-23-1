@@ -19,8 +19,11 @@ class Bot(ABC):
 
     def mostra_comandos(self):
         s = ''
-        for i, key in enumerate(sorted(self._comandos.keys())):
-            s += f'{i+1} - {key}\n'
+        i = 1
+        for key in sorted(self._comandos.keys()):
+            s += f'{i} - {key}\n'
+            i += 1
+        s += f'{i} - Adeus\n'
 
         return s
 
@@ -29,9 +32,10 @@ class Bot(ABC):
         pass
 
     def executa_comando(self,cmd):
-        if cmd <= 0 or cmd > len(self._comandos):
+        cmd_i = int(cmd)
+        if cmd_i <= 0 or cmd_i > len(self._comandos):
             return self.despedida()
-        return sorted(self._comandos.keys())[cmd-1]
+        return sorted(self._comandos.keys())[cmd_i-1]
 
     @abstractmethod
     def boas_vindas(self):
