@@ -9,6 +9,7 @@ class SistemaChatBot:
     
     def boas_vindas(self):
         print('Olá, esse é o sistema de chatbots da empresa {}'.format(self.__empresa))
+        print()
         pass
         ##mostra mensagem de boas vindas do sistema
 
@@ -16,6 +17,7 @@ class SistemaChatBot:
         print('Os chat bots disponíveis no momento são:')
         for i, bot in enumerate(self.__lista_bots):
             print('Bot: {} - Mensagem de apresentação: {}'.format(bot.nome, bot.apresentacao()))
+        print()
         pass
         ##mostra o menu de escolha de bots
     
@@ -27,7 +29,7 @@ class SistemaChatBot:
                 if escolha.lower() == bot.nome.lower():
                     self.__bot = bot
                     selecionado = True
-                    print(bot.boas_vindas())
+                    print(f'--> {self.__bot.nome} diz: {bot.boas_vindas()}')
                     break
             if not selecionado:
                 print('Bot não encontrado.')
@@ -43,7 +45,7 @@ class SistemaChatBot:
 
     def le_envia_comando(self):
         cmd = int(input('Digite o comando desejado (ou -1 para fechar o programa): '))
-        print(Bot.executa_comando(self.__bot, cmd))
+        print(f'--> {self.__bot.nome} diz: {Bot.executa_comando(self.__bot, cmd)}')
         if cmd <= -1 or cmd > 3:
             return True
         pass
