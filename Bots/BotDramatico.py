@@ -9,20 +9,17 @@ class BotDramatico(Bot):
 
     @property
     def nome(self):
-        return super.nome
+        return super()._nome
 
     @nome.setter
     def nome(nome):
-        super.nome(nome)
+        super().nome(nome)
 
-    def apresentacao_dramatica(self):
+    def apresentacao(self):
         return "Oi... Meu nome é Josemildo. Como posso te ajudar? Não consigo te ajudar. O que queres de mim?"
     
-    def executa_comando(self,cmd):
-        return super.executa_comando(cmd)
-
-    def boas_vindas_dramatica(self):
+    def boas_vindas(self):
         return "Por que você me escolheu? Eu não sirvo pra nada, faço tudo errado..."
 
-    def despedida_dramatica(self):
+    def despedida(self):
         return "Você já vai? Não precisa mais de mim? Então, até..."
