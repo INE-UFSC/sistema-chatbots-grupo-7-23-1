@@ -8,7 +8,10 @@ class Bot(ABC):
     def __init__(self, nome):
         self._nome = nome
         self._comandos = {}
-
+    
+    def comandos_len(self):
+        return len(self._comandos)
+    
     @property
     def nome(self):
         return self._nome
