@@ -6,7 +6,8 @@ class BotFeliz(Bot):
         self._comandos = {
             "Bom dia" : "Bom diaaaaa!!!! Tudo bem? ", 
             "Qual o Seu nome": f"Meu nome é {self._nome}, muito prazer, espero poder ajudar!", 
-            "Quero um conselho" : "Gentileza gera gentileza!!"
+            "Quero um conselho" : "Gentileza gera gentileza!!",
+            "Vamo faze um churrasco": "Bora"
         }
 
     @property
