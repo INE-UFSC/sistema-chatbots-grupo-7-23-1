@@ -45,11 +45,11 @@ class SistemaChatBot:
 
     def le_envia_comando(self):
         texto = input('Digite o comando desejado (ou -1 para fechar o programa): ')
-        if not texto.isdigit():
+        if not texto.lstrip('-').isnumeric():
             print('Entrada inválida')
         else:
             cmd = int(texto)
-            if cmd <= -1 or cmd == self.__bot.comandos_len()+1:
+            if cmd == -1 or cmd == self.__bot.comandos_len()+1:
                 print(f'--> {self.__bot.nome} diz: {Bot.executa_comando(self.__bot, cmd)}')
                 return True
             elif cmd < -1 or cmd>self.__bot.comandos_len()+1:
