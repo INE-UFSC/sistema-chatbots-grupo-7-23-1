@@ -2,12 +2,13 @@
 
 from abc import ABC, abstractmethod
 import random as r
+from SistemaChatBot.comando import Comando
 
 class Bot(ABC):
 
     def __init__(self, nome):
         self._nome = nome
-        self._comandos = {}
+        self._comandos = []
     
     def comandos_len(self):
         return len(self._comandos)
@@ -40,8 +41,7 @@ class Bot(ABC):
             return self.despedida()
         qntd_comandos=len([kv[1] for kv in sorted(self._comandos.items(), key=lambda kv: kv[0])][cmd_i-1])
         print(qntd_comandos)
-        x= r.randint(0,qntd_comandos-1)
-        return [kv[1][x] for kv in sorted(self._comandos.items(), key=lambda kv: kv[0])][cmd_i-1]
+        return Comando.getRandomResposta()
 
     @abstractmethod
     def boas_vindas(self):
