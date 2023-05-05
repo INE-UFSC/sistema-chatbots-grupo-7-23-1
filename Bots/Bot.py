@@ -38,7 +38,10 @@ class Bot(ABC):
         cmd_i = int(cmd)
         if cmd_i <= 0 or cmd_i > len(self._comandos):
             return self.despedida()
-        return [kv[1] for kv in sorted(self._comandos.items(), key=lambda kv: kv[0])][cmd_i-1]
+        qntd_comandos=len([kv[1] for kv in sorted(self._comandos.items(), key=lambda kv: kv[0])][cmd_i-1])
+        print(qntd_comandos)
+        x= r.randint(0,qntd_comandos-1)
+        return [kv[1][x] for kv in sorted(self._comandos.items(), key=lambda kv: kv[0])][cmd_i-1]
 
     @abstractmethod
     def boas_vindas(self):
