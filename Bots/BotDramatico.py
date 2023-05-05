@@ -1,13 +1,16 @@
 from Bots.Bot import Bot
+from SistemaChatBot.comando import Comando
 
 class BotDramatico(Bot):
-    def __init__(self, nome):
-        super().__init__(nome)
-        self._comandos = {
+    def __init__(self, nome, comandos = []):
+        super().__init__(nome, comandos)
+        """self._comandos = {
             "Bom dia" : "Nunca será um bom dia...", 
             "Qual o Seu nome": f"Eu já te disse meu nome, é {self._nome}, você já esqueceu de mim?", 
             "Quero um conselho" : "Desista, o mundo vai acabar mesmo, nada vale a pena..."
-        }
+        }"""
+        super().cria_comandos(1,'Bom dia',['wa','luigi'])
+
 
     @property
     def nome(self):
@@ -25,4 +28,6 @@ class BotDramatico(Bot):
 
     def despedida(self):
         return "Você já vai? Não precisa mais de mim? Então, até..."
+    def cria_comandos(self):
+        super().cria_comandos(1,'Bom dia',['bom dia oq','Gelso'])
 

@@ -6,9 +6,9 @@ from SistemaChatBot.comando import Comando
 
 class Bot(ABC):
 
-    def __init__(self, nome):
+    def __init__(self, nome, comandos  = []):
         self._nome = nome
-        self._comandos = []
+        self._comandos = comandos
     
     def comandos_len(self):
         return len(self._comandos)
@@ -24,8 +24,8 @@ class Bot(ABC):
     def mostra_comandos(self):
         s = ''
         i = 1
-        for key in sorted(self._comandos.keys()):
-            s += f'{i} - {key}\n'
+        for key in self._comandos:
+            s += f'{i} - {key.msg}\n'
             i += 1
         s += f'{i} - Adeus\n'
 
@@ -39,10 +39,12 @@ class Bot(ABC):
         cmd_i = int(cmd)
         if cmd_i <= 0 or cmd_i > len(self._comandos):
             return self.despedida()
-        qntd_comandos=len([kv[1] for kv in sorted(self._comandos.items(), key=lambda kv: kv[0])][cmd_i-1])
-        print(qntd_comandos)
-        return Comando.getRandomResposta()
-
+        for i in range(len(self._comandos)):
+            if cmd_i == self._comandos[i].id:
+                return Comando.getRandomResposta(self._comandos[i])
+    
+    def cria_comandos(self,id,msg,respostas : list()):
+        self._comandos.append(Comando(id,msg,respostas))
     @abstractmethod
     def boas_vindas(self):
         pass

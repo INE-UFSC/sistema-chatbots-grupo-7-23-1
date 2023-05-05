@@ -3,30 +3,35 @@ import random as r
 class Comando:
     # recebe o id (inteiro), a mensagem e as respostas (opcional)
     def __init__(self, id, msg, respostas = []):
-        self.__id = id
-        self.__msg = msg
-        self.__respostas = respostas
+        self._id = id
+        self._msg = msg
+        self._respostas = respostas
 
     # get id
     @property
     def id(self):
-        return self.__id
+        return self._id
     
     # get mensagem
     @property
     def msg(self):
-        return self.__msg
+        return self._msg
+    
+    @property
+    def respostas(self):
+        return self._respostas
     
     # retorna uma resposta aleatória
     def getRandomResposta(self):
-        qntd_comandos = len(self.__respostas)
-        x= r.randint(0,qntd_comandos-1)
-        return self.__respostas[x]
+        ##print(self._respostas)
+        ##qntd_comandos = len(self._respostas)
+        x= r.randint(0,1)
+        return self._respostas[x]
 
     # adiciona resposta
     def addResposta(self, resposta):
-        self.__respostas.append(resposta)
+        self._respostas.append(resposta)
 
     # remove resposta (opcional)
     def delResposta(self, resposta):
-        self.__respostas.remove(resposta)
+        self._respostas.remove(resposta)
