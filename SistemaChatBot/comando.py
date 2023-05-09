@@ -24,8 +24,8 @@ class Comando:
     # retorna uma resposta aleatória
     def getRandomResposta(self):
         ##print(self._respostas)
-        ##qntd_comandos = len(self._respostas)
-        x= r.randint(0,1)
+        qntd_comandos = len(self._respostas)-1
+        x= r.randint(0,qntd_comandos)
         return self._respostas[x]
 
     # adiciona resposta

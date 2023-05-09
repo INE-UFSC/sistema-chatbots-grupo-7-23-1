@@ -1,13 +1,11 @@
 from Bots.Bot import Bot
 
 class BotZangado(Bot):
-    def __init__(self,nome,comandos = []):
-        super().__init__(nome,comandos)
-        self._comandos={   
-            "Boas vindas": "Que boas vindas o que não quero voce aqui",
-            "Qual o seu nome": f"Quer que eu fale denovo? é {self._nome}",
-            "Quero um conselho": "Meu conselho: vai embora",
-        }
+    def __init__(self, nome, comandos = []):
+        super().__init__(nome, comandos)
+        super().cria_comandos(1,"Bom dia",["Que boas vindas o que não quero voce aqui"])
+        super().cria_comandos(2,"Qual o Seu nome",[f"Quer que eu fale denovo? é {self._nome}"])
+        super().cria_comandos(3,"Quero um conselho",["Meu conselho: vai embora"])
 
     @property
     def nome(self):
