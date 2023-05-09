@@ -25,6 +25,3 @@ class BotDramatico(Bot):
 
     def despedida(self):
         return "Você já vai? Não precisa mais de mim? Então, até..."
-    def cria_comandos(self):
-        super().cria_comandos(1,'Bom dia',['bom dia oq','Gelso'])
-

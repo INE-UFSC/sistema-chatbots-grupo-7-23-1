@@ -1,48 +1,29 @@
 from Bots.Bot import Bot
 
 class BotTriste_gp4(Bot):
-    def __init__(self,nome):
-        super().__init__(nome)
-        self.__nome = nome
-        self._comandos = {
-            "Bom dia" : "Queria eu que fosse um bom dia...", 
-            "Qual o Seu nome": f"Normalmente me chamam de idiota, burro... Mas meu nome verdadeiro é {self.nome}", 
-            "Quero um conselho" : "Também estou precisando, mas até agora nada :."
-        }
-
+    def __init__(self, nome, comandos = []):
+        super().__init__(nome, comandos)
+        super().cria_comandos(1,"Bom dia",["Queria eu que fosse um bom dia..."])
+        super().cria_comandos(2,"Qual o Seu nome",[f"Normalmente me chamam de idiota, burro... Mas meu nome verdadeiro é {self._nome}."])
+        super().cria_comandos(3,"Quero um conselho",["Também estou precisando, mas até agora nada :c"])
 
     @property
     def nome(self):
-        return self.__nome
+        return super().nome
 
     @nome.setter
     def nome(nome):
-        self.__nome = nome
+        super().nome(nome)
 
     def apresentacao(self):
-        print(":( Meu nome é", self.nome, ", seja bem vindo, eu acho... :c")
+        return f":( Meu nome é {self._nome}, seja bem vindo, eu acho... :c"
  
-    def mostra_comandos(self):
-        super().mostra_comandos()
-    
-    def executa_comando(self,cmd):
-        if (cmd == '1'):
-            print(self.nome, "diz: voce disse 'Bom Dia'")
-            print("Eu te respondo: 'Queria eu que fosse um bom dia...'")
-        elif (cmd == '2'):
-            print(self.nome, "diz: voce disse 'Qual o seu nome?'")
-            print("Eu te respondo: 'Normalmente me chamam de idiota, burro... Mas meu nome verdadeiro é ", self.nome)
-        elif (cmd == '3'):
-            print(self.nome, "diz: voce disse 'Quero um conselho'")
-            print("Eu te respondo: 'Também estou precisando, mas até agora nada :c'")
-        elif (cmd == '4'):
+        '''elif (cmd == '4'):
             print(self.nome, "diz: voce disse 'Adeus'")
-            print("Eu te respondo: 'Mais um dia sozinho... Estou acostumado já :c'")
-        elif(cmd == '-1'):
-            self.despedida()
+            print("Eu te respondo: 'Mais um dia sozinho... Estou acostumado já :c'")'''
 
     def boas_vindas(self):
-        print(self.nome, "diz: Aleluia alguém me escolheu, não aguentava mais essa solidão...")
+        return "Aleluia alguém me escolheu, não aguentava mais essa solidão..."
 
     def despedida(self):
-        print(self.nome, "diz: 'NAAAAAAAAAAAAAO, por favor :c '")
+        return "NAAAAAAAAAAAAAO, por favor :c "
